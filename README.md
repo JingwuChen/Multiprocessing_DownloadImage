@@ -32,7 +32,7 @@ task_threads = []  # 存储线程
 ### 3.使用多进程
 由于GIL（全局解释锁）的问题，python多线程并不能充分利用多核处理器。如果想要充分地使用多核CPU的资源，在python中大部分情况需要使用多进程。`multiprocessing`可以给每个进程赋予单独的Python解释器，这样就规避了全局解释锁所带来的问题。
 设计多任务时最好用`multiprocessing`的进程池`Pool`方法，非常简单，函数解释如下:
-* apply_async(func[, args[, kwds[, callback]]]) 它是非阻塞，apply(func[, args[, kwds]])是阻塞的（理解区别，看例1例2结果区别）
+* apply_async(func[, args[, kwds[, callback]]]) 它是非阻塞，apply(func[, args[, kwds]])是阻塞的
 * close()    关闭pool，使其不在接受新的任务。
 * terminate()    结束工作进程，不在处理未完成的任务。
 * join()    主进程阻塞，等待子进程的退出， join方法要在close或terminate之后使用
